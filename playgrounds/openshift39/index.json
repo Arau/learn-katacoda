@@ -30,7 +30,13 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "volumes.json", "target": "~/"}, {"file": "storageos", "target": "/usr/local/bin/"}]
+          "host01": [
+              {
+                  "file": "storageos", 
+                  "target": "/usr/local/bin/",
+                  "chmod": "+x"
+              }
+          ]
         }
     }
 }
