@@ -14,7 +14,5 @@ ssh root@host01 "oc create -f https://github.com/openshift/origin/raw/release-3.
 ssh root@host01 "oc create -f https://github.com/openshift/origin/raw/release-3.7/examples/db-templates/postgresql-persistent-template.json -n openshift"
 ssh root@host01 "oc create -f https://github.com/openshift/origin/raw/release-3.7/examples/db-templates/redis-ephemeral-template.json -n openshift"
 ssh root@host01 "oc create -f https://github.com/openshift/origin/raw/release-3.7/examples/db-templates/redis-persistent-template.json -n openshift"
-
-
 ssh root@host01 "curl -sSLko storageos https://github.com/storageos/go-cli/releases/download/1.0.0-rc1/storageos_linux_amd64 && chmod +x storageos && sudo mv storageos /usr/local/bin/"
-ssh root@host01 "echo export STORAGEOS_USERNAME=storageos STORAGEOS_PASSWORD=storageos > /root/.bash_profile "
+ssh root@host01 "echo export STORAGEOS_USERNAME=storageos STORAGEOS_PASSWORD=storageos >> /root/.bash_profile "
