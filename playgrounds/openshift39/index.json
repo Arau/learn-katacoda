@@ -31,11 +31,7 @@
         },
         "assets": {
           "host01": [
-              {
-                  "file": "storageos", 
-                  "target": "/usr/local/bin/",
-                  "chmod": "+x"
-              }
+              {"file": "*", "target": "~/"}
           ]
         }
     }
