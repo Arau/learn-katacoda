@@ -5,6 +5,10 @@
     {
       "external_link": "https://learn.openshift.com/playgrounds/",
       "title": "OpenShift Playgrounds"
+    },
+    {
+      "external_link": "https://learn.openshift.com/mytest/",
+      "title": "Test"
     }
   ]
 }
