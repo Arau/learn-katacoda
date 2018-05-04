@@ -1,30 +1,10 @@
 {
-  "title": "Learn.OpenShift.com",
-  "private": true,
+  "title": "Storageos with Openshift",
+  "private": false,
   "courses": [
-    {
-      "external_link": "https://learn.openshift.com/introduction/",
-      "title": "Foundations of OpenShift"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/",
-      "title": "Building Applications On OpenShift"
-    },
-    {
-      "external_link": "https://learn.openshift.com/subsystems/",
-      "title": "Subsystems, Components, and Internals"
-    },
     {
       "external_link": "https://learn.openshift.com/playgrounds/",
       "title": "OpenShift Playgrounds"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/",
-      "title": "Service Mesh workshop with Istio"
-    },
-    {
-      "external_link": "https://learn.openshift.com/serverless/",
-      "title": "Serverless scenarios with OpenShift Cloud Functions"
     }
   ]
 }
