@@ -73,6 +73,9 @@ curl -Lk https://raw.githubusercontent.com/openshift/origin/master/examples/imag
 # oc create -f /openshift/image-streams-centos7.json --namespace=openshift
 # oc policy add-role-to-user system:masters developer
 
+echo 'export STORAGEOS_USERNAME=storageos' >> ~/.bashrc
+echo 'export STORAGEOS_PASSWORD=storageos' >> ~/.bashrc
+echo 'export STORAGEOS_HOST=localhost' >> ~/.bashrc
 echo 'export KUBECONFIG=/openshift.local.config/master/admin.kubeconfig' >> ~/.bashrc
 echo 'export CURL_CA_BUNDLE=/openshift.local.config/master/ca.crt' >> ~/.bashrc
 echo 'export PS1="$ "' >> ~/.bashrc
