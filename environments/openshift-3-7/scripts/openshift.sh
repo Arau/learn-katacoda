@@ -63,6 +63,8 @@ echo 'done' >> ~/.launch.sh
 echo 'oc create namespace openshift > /dev/null 2>&1' >> ~/.launch.sh
 echo 'oc create -f /openshift/image-streams-centos7.json --namespace=openshift > /dev/null 2>&1' >> ~/.launch.sh
 echo 'echo "OpenShift Ready"' >> ~/.launch.sh
+echo 'curl -sSLko storageos https://github.com/storageos/go-cli/releases/download/1.0.0-rc1/storageos_linux_amd64 && chmod +x storageos && sudo mv storageos /usr/local/bin/' >> ~/.launch.sh
+echo 'echo "storageos installed"' >> ~/.launch.sh
 
 chmod +x ~/.launch.sh
 
@@ -79,3 +81,5 @@ echo 'export STORAGEOS_HOST=localhost' >> ~/.bashrc
 echo 'export KUBECONFIG=/openshift.local.config/master/admin.kubeconfig' >> ~/.bashrc
 echo 'export CURL_CA_BUNDLE=/openshift.local.config/master/ca.crt' >> ~/.bashrc
 echo 'export PS1="$ "' >> ~/.bashrc
+
+
