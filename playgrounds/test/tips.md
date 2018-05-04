@@ -4,8 +4,8 @@ a bit about how the playground environment is setup and what access you have.
 
 ## Install storageos cli
 
-``curl -sSLko storageos https://github.com/storageos/go-cli/releases/download/0.10.0/storageos_linux_amd64``
-``chmod +x storageos``
+``curl -sSLko storageos https://github.com/storageos/go-cli/releases/download/0.10.0/storageos_linux_amd64``{{execute}}
+``chmod +x storageos``{{execute}}
 ``mv storageos /usr/local/bin/``{{execute}}
 `export STORAGEOS_USERNAME=storageos STORAGEOS_PASSWORD=storageos STORAGEOS_HOST=[[HOST_IP]]`{{execute}}
 
