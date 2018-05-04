@@ -96,3 +96,4 @@ echo 'export KUBECONFIG=/katacoda/config/master/admin.kubeconfig' >> ~/.bashrc
 echo 'export CURL_CA_BUNDLE=/katacoda/config/master/ca.crt' >> ~/.bashrc
 echo 'source <( oc completion bash )' >> ~/.bashrc
 echo 'export PS1="$ "' >> ~/.bashrc
+echo 'export TEST=TEST' >> ~/.bashrc
