@@ -31,11 +31,9 @@
         },
         "assets": {
           "host01": [
-              {"file": "*", "target": "~/"}
-          ],
-          "client": [
-	      { "file": "*", "target": "/root"}
-	  ]
+              {"file": "volumes.json", "target": "~/"},
+	      {"file": "*.yaml", "target": "/tmp"}
+          ]
         }
     }
 }
