@@ -1,0 +1,18 @@
+# Source: storageos/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: storageos
+  namespace: demo
+  labels:
+    app: storageos
+    chart: storageos-0.1.0
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5705
+      targetPort: 5705
+      protocol: TCP
+      name: storageos
+  selector:
+    app: storageos

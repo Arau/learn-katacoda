@@ -1,0 +1,14 @@
+# Source: storageos/templates/rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: storageos
+  labels:
+    app: storageos
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: storageos
+subjects:
+  - kind: ServiceAccount
+    name: storageos

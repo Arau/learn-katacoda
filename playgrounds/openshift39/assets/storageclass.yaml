@@ -1,0 +1,16 @@
+# Source: storageos/templates/storageclass.yaml
+# openshift needs scale privileges 
+# oc --as system:admin create -f xx
+apiVersion: storage.k8s.io/v1beta1
+kind: StorageClass
+metadata:
+  name: fast
+  labels:
+    app: storageos
+provisioner: kubernetes.io/storageos
+parameters:
+  pool: default
+  description: Kubernetes volume
+  fsType: ext4
+  adminSecretNamespace: default
+  adminSecretName: storageos-api

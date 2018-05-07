@@ -1,0 +1,76 @@
+# Source: storageos/templates/daemonset.yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: storageos
+  namespace: demo
+spec:
+  template:
+    metadata:
+      name: storageos
+      labels:
+        app: storageos
+    spec:
+      hostPID: true
+      hostNetwork: true
+      serviceAccountName: storageos
+      containers:
+      - name: storageos
+        image: "storageos/node:0.10.0"
+        imagePullPolicy: IfNotPresent
+        args:
+        - server
+        ports:
+        - containerPort: 5705
+          name: api
+        livenessProbe:
+          initialDelaySeconds: 30
+          failureThreshold: 3
+          httpGet:
+            path: /v1/health
+            port: api
+        readinessProbe:
+          initialDelaySeconds: 5
+          httpGet:
+            path: /v1/health
+            port: api
+        resources:
+            {}
+
+        env:
+        - name: HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: JOIN
+          value: 192.168.99.101
+          # value: http://10.1.5.224:5705
+          # value: storageos:5705,:5705
+          # valueFrom:
+          #   secretKeyRef:
+          #     name: storageos
+          #     key: clusterId
+        - name: ADVERTISE_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: NAMESPACE
+          value: default
+        volumeMounts:
+          - name: fuse
+            mountPath: /dev/fuse
+          - name: state
+            mountPath: /var/lib/storageos
+            mountPropagation: Bidirectional
+        securityContext:
+          privileged: true
+          capabilities:
+            add:
+            - SYS_ADMIN
+      volumes:
+        - name: fuse
+          hostPath:
+            path: /dev/fuse
+        - name: state
+          hostPath:
+            path: /var/lib/storageos

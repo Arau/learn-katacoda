@@ -1,0 +1,18 @@
+# Source: storageos/templates/role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: storageos
+  labels:
+    app: storageos
+    chart: storageos-0.1.0
+rules:
+- apiGroups:
+    - ""
+  resources:
+    - secrets
+  verbs:
+    - create
+    - get
+    - list
+    - delete
