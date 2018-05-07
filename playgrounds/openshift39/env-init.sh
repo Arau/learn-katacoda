@@ -4,6 +4,5 @@ ssh root@host01 "mkdir -p /data/pv-01 /data/pv-02 /data/pv-03 /data/pv-04 /data/
 ssh root@host01 "chmod 0777 /data/pv-*"
 #ssh root@host01 "oc create -f volumes.json"
 ssh root@host01 'for i in {1..200}; do oc get project/openshift && break || sleep 1; done'
-
-mkdir -p /var/lib/storageos
-chmod 0777 /var/lib/storageos
+ssh root@host01 "mkdir -p /var/lib/storageos"
+ssh root@host01 "chmod 0777 /var/lib/storageos"

@@ -18,11 +18,13 @@ admin, the ``sudoer`` role has been enabled for the ``developer`` account.
 To execute a command as a cluster admin use the ``--as system:admin`` option
 to the command. For example:
 
-``oc get projects --as system:admin``{{execute}}
-
 ## Create the 'demo' project
 
 ``oc new-project demo``{{execute}}
+
+Check out the project.
+
+``oc get projects --as system:admin``{{execute}}
 
 ## Create a service account for StorageOS
 
