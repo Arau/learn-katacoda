@@ -2,14 +2,13 @@
 
 To login to the OpenShift cluster from the _Terminal_ run:
 
-``oc login``{{execute}}
+``oc login --insecure-skip-tls-verify=true -u developer -p developer``{{execute}}
 
-Accept the insecure connection. 
 
-Use the following credentials:
+This will log you in using the credentials:
 
-* **Username:** ``developer``{{execute}}
-* **Password:** ``developer``{{execute}}
+* **Username:** ``developer``
+* **Password:** ``developer``
 
 Use the same credentials to log into the web console.
 
@@ -33,6 +32,11 @@ Check out the project.
 ## Add privileged scc (security context constraint) to the service account
 
 ``oc adm policy add-scc-to-user privileged system:serviceaccount:demo:storageos --as system:admin``{{execute}}
+
+
+## Install StorageOS in your project
+
+``oc create -f 
 
 ## Persistent Volume Claims
 
