@@ -47,9 +47,9 @@ Check out the project.
 
 ``oc create -f ~/storageos/rolebinding.yaml``{{execute}}
 
-``oc --as system:admin -n default adm policy add-role-to-user storageos system:serviceaccount:demo:storageos`` {{execute}}
+``oc --as system:admin -n default adm policy add-role-to-user storageos system:serviceaccount:demo:storageos``{{execute}}
 
-``oc --as system:admin -n default policy add-role-to-user edit system:serviceaccount:demo:storageos`` {{execute}}
+``oc --as system:admin -n default policy add-role-to-user edit system:serviceaccount:demo:storageos``{{execute}}
 
 ### Add scc (security context constraint) to the service account
 
