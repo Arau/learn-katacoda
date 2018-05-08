@@ -36,19 +36,19 @@ Check out the project.
 
 ## Prepare StorageOS
 
-You will find the yaml spec files to deploy StorageOS in the directory /tmp/storageos 
+You will find the yaml spec files to deploy StorageOS in the directory ~/storageos 
 
-``ls /tmp/storageos``{{execute}}
+``ls ~/storageos``{{execute}}
 
-``oc --as system:admin create -f /tmp/storageos/storageclass.yaml``{{execute}}
+``oc --as system:admin create -f ~/storageos/storageclass.yaml``{{execute}}
 
-``oc create -f /tmp/storageos/serviceaccount.yaml``{{execute}}
+``oc create -f ~/storageos/serviceaccount.yaml``{{execute}}
 
-``oc create -f /tmp/storageos/role.yaml``{{execute}}
+``oc create -f ~/storageos/role.yaml``{{execute}}
 
-``oc create -f /tmp/storageos/rolebinding.yaml``{{execute}}
+``oc create -f ~/storageos/rolebinding.yaml``{{execute}}
 
-``oc create -f /tmp/storageos/service.yaml``{{execute}}
+``oc create -f ~/storageos/service.yaml``{{execute}}
 
 ## Deploy StorageOS container
 
@@ -56,11 +56,11 @@ First, we will get a cluster id
 
 ``storageos cluster create``
 
-Copy the result hash and add it as the JOIN value env variable in /tmp/storageos/daemonset.yaml
+Copy the result hash and add it as the JOIN value env variable in ~/storageos/daemonset.yaml
 
-``oc create -f /tmp/storageos/secrets.yaml``{{execute}}
+``oc create -f ~/storageos/secrets.yaml``{{execute}}
 
-``oc create -f /tmp/storageos/daemonset.yaml``{{execute}}
+``oc create -f ~/storageos/daemonset.yaml``{{execute}}
 
 ## Persistent Volume Claims
 
