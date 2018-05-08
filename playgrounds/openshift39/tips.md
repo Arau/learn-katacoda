@@ -54,13 +54,13 @@ You will find the yaml spec files to deploy StorageOS in the directory ~/storage
 
 First, we will get a cluster id
 
-``storageos cluster create``
+``storageos cluster create``{{execute}}
 
 Copy the result hash and add it as the JOIN value env variable in ~/storageos/daemonset.yaml
 
 ``oc create -f ~/storageos/secrets.yaml``{{execute}}
 
-``oc create -f ~/storageos/daemonset.yaml``{{execute}}
+``oc --as system:admin create -f ~/storageos/daemonset.yaml``{{execute}}
 
 ## Persistent Volume Claims
 

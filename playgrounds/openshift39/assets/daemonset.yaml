@@ -16,7 +16,7 @@ spec:
       serviceAccountName: storageos
       containers:
       - name: storageos
-        image: "storageos/node:0.10.0"
+        image: "soegarots/node:bdd33db-8d780ab1"
         imagePullPolicy: IfNotPresent
         args:
         - server
@@ -43,13 +43,8 @@ spec:
             fieldRef:
               fieldPath: spec.nodeName
         - name: JOIN
-          value: 192.168.99.101
-          # value: http://10.1.5.224:5705
-          # value: storageos:5705,:5705
-          # valueFrom:
-          #   secretKeyRef:
-          #     name: storageos
-          #     key: clusterId
+          value: 
+          # value:  add the token from running storageos cluster create
         - name: ADVERTISE_IP
           valueFrom:
             fieldRef:
