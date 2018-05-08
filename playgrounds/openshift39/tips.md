@@ -49,6 +49,8 @@ Check out the project.
 
 ``oc --as system:admin -n default adm policy add-role-to-user storageos system:serviceaccount:demo:storageos`` {{execute}}
 
+``oc --as system:admin -n default policy add-role-to-user edit system:serviceaccount:demo:storageos`` {{execute}}
+
 ### Add scc (security context constraint) to the service account
 
 ``oc --as system:admin adm policy add-scc-to-user privileged system:serviceaccount:demo:storageos ``{{execute}}
