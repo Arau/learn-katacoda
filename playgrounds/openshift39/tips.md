@@ -65,7 +65,7 @@ First, we will get a cluster id
 
 Copy the result hash and add it as the JOIN value env variable in ~/storageos/daemonset.yaml
 
-``oc create -f ~/storageos/secrets.yaml``{{execute}}
+``oc --as system:admin -n default create -f ~/storageos/secrets.yaml``{{execute}}
 
 ``oc --as system:admin create -f ~/storageos/daemonset.yaml``{{execute}}
 
