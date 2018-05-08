@@ -31,6 +31,7 @@
         },
         "assets": {
           "host01": [
+              {"file": "volumes.json", "target": "~/"},
 	          {"file": "*", "target": "/tmp/"},
 	          {"file": "storageos", "target": "/usr/local/bin/", "chmod": "+x"}
           ]
