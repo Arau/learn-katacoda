@@ -33,7 +33,8 @@
           "host01": [
               {"file": "volumes.json", "target": "~/"},
 	          {"file": "*.yaml", "target": "~/storageos"},
-	          {"file": "install-cli.sh", "target": "~/", "chmod": "+x"}
+	          {"file": "install-cli.sh", "target": "~/", "chmod": "+x"},
+	          {"file": "test.dat", "target": "~/"}
           ]
         }
     }
