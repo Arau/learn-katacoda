@@ -34,9 +34,28 @@ Check out the project.
 ``oc adm policy add-scc-to-user privileged system:serviceaccount:demo:storageos --as system:admin``{{execute}}
 
 
-## Install StorageOS in your project
+## Prepare StorageOS
 
-``oc create -f 
+You will find the yaml spec files to deploy StorageOS in the directory /tmp/storageos 
+
+``ls /tmp/storageos``{{execute}}
+
+``oc --as system:admin create -f /tmp/storageos/storageclass.yaml``{{execute}}
+``oc create -f /tmp/storageos/serviceaccount.yaml``{{execute}}
+``oc create -f /tmp/storageos/role.yaml``{{execute}}
+``oc create -f /tmp/storageos/rolebinding.yaml``{{execute}}
+``oc create -f /tmp/storageos/service.yaml``{{execute}}
+
+## Deploy StorageOS container
+
+First, we will get a cluster id
+
+``storageos cluster create``
+
+Copy the result hash and add it as the JOIN value env variable in /tmp/storageos/daemonset.yaml
+
+``oc create -f /tmp/storageos/secrets.yaml``{{execute}}
+``oc create -f /tmp/storageos/daemonset.yaml``{{execute}}
 
 ## Persistent Volume Claims
 
