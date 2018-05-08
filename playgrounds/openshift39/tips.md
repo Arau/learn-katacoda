@@ -17,6 +17,13 @@ admin, the ``sudoer`` role has been enabled for the ``developer`` account.
 To execute a command as a cluster admin use the ``--as system:admin`` option
 to the command. For example:
 
+## Install StorageOS cli
+
+``./install-cli.sh``{{execute}}
+
+You can verify the installation by checking the verson of the cli ``storageos version``{{execute}}
+
+
 ## Create the 'demo' project
 
 ``oc new-project demo``{{execute}}
