@@ -23,6 +23,13 @@ to the command. For example:
 
 You can verify the installation by checking the verson of the cli ``storageos version``{{execute}}
 
+## Prepare StorageOS
+
+You will find the yaml spec files to deploy StorageOS in the directory ~/storageos 
+
+``ls ~/storageos``{{execute}}
+
+``oc --as system:admin create -f ~/storageos/storageclass.yaml``{{execute}}
 
 ## Create the 'demo' project
 
@@ -32,22 +39,7 @@ Check out the project.
 
 ``oc get projects --as system:admin``{{execute}}
 
-## Create a service account for StorageOS
-
-``oc create serviceaccount storageos -n demo``{{execute}}
-
-## Add privileged scc (security context constraint) to the service account
-
-``oc adm policy add-scc-to-user privileged system:serviceaccount:demo:storageos --as system:admin``{{execute}}
-
-
-## Prepare StorageOS
-
-You will find the yaml spec files to deploy StorageOS in the directory ~/storageos 
-
-``ls ~/storageos``{{execute}}
-
-``oc --as system:admin create -f ~/storageos/storageclass.yaml``{{execute}}
+## Add accounts ands privileges 
 
 ``oc create -f ~/storageos/serviceaccount.yaml``{{execute}}
 
@@ -55,15 +47,24 @@ You will find the yaml spec files to deploy StorageOS in the directory ~/storage
 
 ``oc create -f ~/storageos/rolebinding.yaml``{{execute}}
 
+``oc --as system:admin -n default adm policy add-role-to-user storageos system:serviceaccount:demo:storageos {{execute}}
+
+### Add scc (security context constraint) to the service account
+
+``oc --as system:admin adm policy add-scc-to-user privileged system:serviceaccount:demo:storageos ``{{execute}}
+
+
+## Deploy StorageOS
+
+
 ``oc create -f ~/storageos/service.yaml``{{execute}}
 
-## Deploy StorageOS container
 
-First, we will get a cluster id
+### Get a cluster id
 
 ``storageos cluster create``{{execute}}
 
-Copy the result hash and add it as the JOIN value env variable in ~/storageos/daemonset.yaml
+Copy the result hash and add it as the JOIN value env variable in ``~/storageos/daemonset.yaml``
 
 ``oc --as system:admin -n default create -f ~/storageos/secrets.yaml``{{execute}}
 
