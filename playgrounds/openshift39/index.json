@@ -34,7 +34,7 @@
               {"file": "volumes.json", "target": "~/"},
 	          {"file": "*.yaml", "target": "~/storageos"},
 	          {"file": "install-cli.sh", "target": "~/", "chmod": "+x"},
-	          {"file": "DevOps_with_OpenShift.mobi", "target": "~/"}
+	          {"file": "test.dat", "target": "~/"}
           ]
         }
     }
