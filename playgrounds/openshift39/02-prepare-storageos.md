@@ -1,4 +1,3 @@
-## Prepare StorageOS
 
 You will find the yaml spec files to deploy StorageOS in the directory ~/storageos 
 

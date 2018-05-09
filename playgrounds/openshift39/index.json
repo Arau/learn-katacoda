@@ -18,7 +18,7 @@
     },
     "details": {
         "steps": [{
-            "title": "1. Create an initial project",
+            "title": "1. Create a project",
             "text": "01-login-to-cluster.md"
         },
         {
