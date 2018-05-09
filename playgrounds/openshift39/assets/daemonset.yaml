@@ -49,12 +49,12 @@ spec:
             fieldRef:
               fieldPath: status.podIP
         - name: NAMESPACE
-		  valueFrom:
-			  fieldRef:
-:x
-		  volumeMounts:
+          valueFrom:
+              fieldRef:
+                  fieldPath: metadata.namespace
+          volumeMounts:
           - name: fuse
-            mountPath: /dev/fuse
+           mountPath: /dev/fuse
           - name: state
             mountPath: /var/lib/storageos
             mountPropagation: Bidirectional
