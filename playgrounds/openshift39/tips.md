@@ -56,14 +56,29 @@ We will grant the capacity to start pods under privileged scc to the serviceacco
 ``oc --as system:admin adm policy add-scc-to-user privileged system:serviceaccount:demo:storageos``{{execute}}
 
 
-## Deploy StorageOS service
+## Deploy StorageOS api service
 
 ``oc create -f ~/storageos/service.yaml``{{execute}}
 
+Add service IP to the storageos-api secret. Adding the dns name would only work in the case that you added a cluster dns, otherwise the cluster won't start as it can't resolve the name.
+
+``CLUSTER_IP=$(oc get svc/storageos -o custom-columns=IP:spec.clusterIP --no-headers=true)``{{execute}}
+
+Verify the ip: ``echo $CLUSTER_IP``{{execute}}
+
+Create the api address string.
+
+``API=$(echo -n "tcp://$CLUSTER_IP:5705" | base64)``{{execute}}
+
+Add the api address to secrets.yaml and create the secret. 
+
+``sed -i -e "s/ADDRESS/$API/" ~/storageos/secrets.yaml``{{execute}}
+
+``oc create -f ~/storageos/secrets.yaml``{{execute}}
 
 ## Get a cluster id
 
-StorageOS has got different ways to make the members of a cluster know each other. We will use a token so every member of the cluster using the same token will discover automatically its peers and join the cluster.
+StorageOS has got different ways to make the members of a cluster know each other. We will use a token so every member of the cluster using the same token will discover automatically its peers, and join the cluster.
 
 ``CLUSTER_ID=$(storageos cluster create)``{{execute}}
 
