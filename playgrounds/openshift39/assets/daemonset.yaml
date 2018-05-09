@@ -49,8 +49,10 @@ spec:
             fieldRef:
               fieldPath: status.podIP
         - name: NAMESPACE
-          value: default
-        volumeMounts:
+		  valueFrom:
+			  fieldRef:
+:x
+		  volumeMounts:
           - name: fuse
             mountPath: /dev/fuse
           - name: state
