@@ -18,10 +18,6 @@
     },
     "details": {
         "steps": [{
-            "title": "OpenShift Playground",
-            "text": "tips.md"
-        },
-        {
             "title": "1. Create an initial project",
             "text": "01-login-to-cluster.md"
         },
