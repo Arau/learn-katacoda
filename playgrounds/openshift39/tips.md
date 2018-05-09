@@ -21,14 +21,6 @@ admin, the ``sudoer`` role has been enabled for the ``developer`` account.
 To execute a command as a cluster admin use the ``--as system:admin`` option
 to the command. For example:
 
-## Prepare StorageOS
-
-You will find the yaml spec files to deploy StorageOS in the directory ~/storageos 
-
-``ls ~/storageos``{{execute}}
-
-``oc --as system:admin create -f ~/storageos/storageclass.yaml``{{execute}}
-
 ## Create the 'demo' project
 
 ``oc new-project demo``{{execute}}
@@ -37,7 +29,18 @@ Check out the project.
 
 ``oc get projects --as system:admin``{{execute}}
 
+## Prepare StorageOS
+
+You will find the yaml spec files to deploy StorageOS in the directory ~/storageos 
+
+``ls ~/storageos``{{execute}}
+
+``oc --as system:admin create -f ~/storageos/storageclass.yaml``{{execute}}
+
+
 ## Add accounts ands privileges 
+
+We are going to create a serviceaccount and grant the permissions required so StorageOS can operate at full capacity.
 
 ``oc create -f ~/storageos/serviceaccount.yaml``{{execute}}
 
@@ -45,40 +48,45 @@ Check out the project.
 
 ``oc create -f ~/storageos/rolebinding.yaml``{{execute}}
 
-``oc --as system:admin -n default adm policy add-role-to-user storageos system:serviceaccount:demo:storageos``{{execute}}
-
-``oc --as system:admin -n default policy add-role-to-user edit system:serviceaccount:demo:storageos``{{execute}}
-
 ### Add scc (security context constraint) to the service account
 
-``oc --as system:admin adm policy add-scc-to-user privileged system:serviceaccount:demo:storageos ``{{execute}}
+By default, your openshift installation will trigger pods with the deployer scc, which is ``restricted``. However, StorageOS needs more privileges to interact with the host. 
+We will grant the capacity to start pods under privileged scc to the serviceaccount created previously.
+
+``oc --as system:admin adm policy add-scc-to-user privileged system:serviceaccount:demo:storageos``{{execute}}
 
 
-## Deploy StorageOS
-
+## Deploy StorageOS service
 
 ``oc create -f ~/storageos/service.yaml``{{execute}}
 
 
-### Get a cluster id
+## Get a cluster id
 
-``storageos cluster create``{{execute}}
+StorageOS has got different ways to make the members of a cluster know each other. We will use a token so every member of the cluster using the same token will discover automatically its peers and join the cluster.
 
-Copy the result hash and add it as the JOIN value env variable in ``~/storageos/daemonset.yaml``
+``CLUSTER_ID=$(storageos cluster create)``{{execute}}
 
-``oc --as system:admin -n default create -f ~/storageos/secrets.yaml``{{execute}}
+Verify the id ``echo $CLUSTER_ID``{{execute}}
+
+Copy the result hash to the JOIN value env variable in ``~/storageos/daemonset.yaml`` by running:
+
+``sed -i -e "s/JOIN_VALUE/$CLUSTER_ID/" ~/storageos/daemonset.yaml``{{execute}}
+
+Create the daemonset.
 
 ``oc --as system:admin create -f ~/storageos/daemonset.yaml``{{execute}}
 
 ## Persistent Volume Claims
 
-Persistent volumes have been pre-created in the playground environment.
-These will be used if you make persistent volume claims for an application.
-The volume sizes are defined as 100Gi each, however you are limited by how
-much disk space the host running the OpenShift environment has, which is
-much less.
+Wait until StorageOS pod is started and ready.
 
-To view the list of available persistent volumes you can run:
+``oc get pods -lapp=storageos``{{execute}}
 
-``oc get pv --as system:admin``{{execute}}
+Create a persistent volume claim.
 
+``oc create -f ~/storageos/pvc.yaml``{{execute}}
+
+Inspect the claim status.
+
+``oc describe pvc/redis-test``{{execute}}

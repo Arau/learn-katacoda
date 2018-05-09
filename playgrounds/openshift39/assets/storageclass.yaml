@@ -12,5 +12,5 @@ parameters:
   pool: default
   description: Kubernetes volume
   fsType: ext4
-  adminSecretNamespace: default
+  adminSecretNamespace: demo
   adminSecretName: storageos-api

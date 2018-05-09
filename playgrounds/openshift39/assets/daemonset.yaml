@@ -36,14 +36,13 @@ spec:
             port: api
         resources:
             {}
-
         env:
         - name: HOSTNAME
           valueFrom:
             fieldRef:
               fieldPath: spec.nodeName
         - name: JOIN
-          value: 
+          value: "JOIN_VALUE"
           # value:  add the token from running storageos cluster create
         - name: ADVERTISE_IP
           valueFrom:
