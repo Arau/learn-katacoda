@@ -24,7 +24,19 @@
         {
             "title": "1. Create an initial project",
             "text": "01-login-to-cluster.md"
-        }        
+        },
+        {
+            "title": "2. Prepare StorageOS",
+            "text": "02-prepare-storageos.md"
+        },
+        {
+            "title": "3. Deploy StorageOS cluster",
+            "text": "03-deploy-storageos-cluster.md"
+        },
+        {
+            "title": "4. Create volumes",
+            "text": "04-create-volumes.md"
+        }
         ],
         "intro": {
             "courseData": "env-init.sh",
