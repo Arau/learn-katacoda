@@ -1,8 +1,11 @@
 ## Install StorageOS cli
 
+StorageOS cli can be installed using script available. 
+
 ``./install-cli.sh``{{execute}}
 
 You can verify the installation by checking the verson of the cli ``storageos version``{{execute}}
+
 ## Logging in to the Cluster
 
 To login to the OpenShift cluster from the _Terminal_ run:
@@ -105,3 +108,11 @@ Create a persistent volume claim.
 Inspect the claim status.
 
 ``oc describe pvc/redis-test``{{execute}}
+
+## Check StorageOS volumes
+
+``storageos -ustorageos -pstorageos -h 127.0.0.1 volume ls``{{execute}}
+
+## Create a pod to test the pvc
+
+``oc create -f ~/storageos/redis.yaml``{{execute}}
