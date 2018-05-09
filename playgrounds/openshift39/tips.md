@@ -1,9 +1,13 @@
+## Install StorageOS cli
+
+``./install-cli.sh``{{execute}}
+
+You can verify the installation by checking the verson of the cli ``storageos version``{{execute}}
 ## Logging in to the Cluster
 
 To login to the OpenShift cluster from the _Terminal_ run:
 
 ``oc login --insecure-skip-tls-verify=true -u developer -p developer``{{execute}}
-
 
 This will log you in using the credentials:
 
@@ -16,12 +20,6 @@ In order that you can still run commands from the command line as a cluster
 admin, the ``sudoer`` role has been enabled for the ``developer`` account.
 To execute a command as a cluster admin use the ``--as system:admin`` option
 to the command. For example:
-
-## Install StorageOS cli
-
-``./install-cli.sh``{{execute}}
-
-You can verify the installation by checking the verson of the cli ``storageos version``{{execute}}
 
 ## Prepare StorageOS
 
