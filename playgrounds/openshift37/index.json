@@ -1,10 +1,10 @@
 {
-    "icon": "fa-openshift",
-    "title": "Playground (OpenShift 3.7)",
-    "description": "",
-    "pathwayTitle": "OpenShift",
+    "icon": "fa-storageos",
+    "title": "StorageOS and OpenShift 3.7",
+    "description": "StorageOS and Openshift 3.7",
+    "pathwayTitle": "StorageOS",
     "difficulty": "beginner",
-    "time": "30 minutes",
+    "time": "5-15 minutes",
     "backend": {
         "trainingid": "openshift-3.7-storageos",
         "imageid": "openshift-3-7",
@@ -18,10 +18,20 @@
         "hidefinish": false
     },
     "details": {
-        "steps": [{
-            "title": "StorageOS with Openshift",
-            "text": "tips.md"
-        }],
+        "steps": [
+            {
+                "title": "Install StorageOS",
+                "text": "000-install-storageos.md"
+            },
+            {
+                "title": "Check cluster",
+                "text": "010-check-cluster.md"
+            },
+            {
+                "title": "Use StorageOS volumes",
+                "text": "030-use-volume.md"
+            }
+        ],
         "intro": {
             "courseData": "env-init.sh",
             "code": "set-env.sh",
