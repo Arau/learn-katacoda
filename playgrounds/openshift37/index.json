@@ -4,9 +4,9 @@
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
-    "time": "60 minutes",
+    "time": "30 minutes",
     "backend": {
-        "trainingid": "openshift-middleware-3-7",
+        "trainingid": "openshift-3.7-storageos",
         "imageid": "openshift-3-7",
         "port": 8443
     },
@@ -19,7 +19,7 @@
     },
     "details": {
         "steps": [{
-            "title": "OpenShift Playground",
+            "title": "StorageOS with Openshift",
             "text": "tips.md"
         }],
         "intro": {
@@ -31,7 +31,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "volumes.json", "target": "~/"},{"file": "test.txt", "target": "~/"}]
+          "host01": [{"file": "*", "target": "~/"}]
         }
     }
 }
