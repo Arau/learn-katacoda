@@ -7,12 +7,12 @@
     "time": "5-15 minutes",
     "backend": {
         "trainingid": "openshift-3.7-storageos",
-        "imageid": "openshift-3-7",
-        "port": 5607
+        "imageid": "openshift-3-7"
     },
     "environment": {
         "showdashboard": true,
         "dashboard": "Dashboard",
+        "dashboards": [ {"name": "StorageOS", "port": 5607} ],
         "uilayout": "terminal",
         "hideintro": false,
         "hidefinish": false
