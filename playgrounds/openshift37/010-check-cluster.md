@@ -10,3 +10,6 @@ StorageOS container might take a few seconds to start. If the container is not r
 by running: `docker logs storageos`{{execute}}
 
 
+## UI
+
+Render https://[[HOST_SUBDOMAIN]]-5607-[[KATACODA_HOST]].environments.katacoda.com/
