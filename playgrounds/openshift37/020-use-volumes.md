@@ -8,7 +8,7 @@ List volumes:
 List volumes with StorageOS cli:
 `storageos --host 127.0.0.1 -u $STORAGEOS_USER -p $STORAGEOS_PASSWORD volume ls`{{execute}}
 
-See the status of the volume with oc cli. And verify the volume is successfully allocated. 
+See the status of the volume with oc cli and verify the volume is successfully allocated. 
 
 `oc describe pvc`{{execute}}
 
@@ -26,13 +26,13 @@ The pod finishes as soon as the file has been written. Lets check the data in th
 
 Wait until the write pod finishes and delete afterwards.
 
-``
+`
 until [ "$(oc get pods | grep write | grep  -c Completed)" -gt 0  ]; do 
     sleep 1; 
 done
 
 oc delete po write
-``{{execute}})
+`{{execute}})
 
 `oc create -f pod-read.yaml`{{execute}}
 
