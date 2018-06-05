@@ -6,7 +6,7 @@ Required kernel modules will be enabled by running the following `./enable-lio.s
 
 ## Install StorageOS
 
-(Until openshift version 3.9 feature gates such as mount propagation are not supported. Because of that the installation of StorageOS is done by container installation rather than DaemonSet)
+(Until openshift version 3.9, feature gates such as mount propagation are not supported. Because of that, the installation of StorageOS is done by container installation rather than DaemonSet)
 
 ``
 docker run -d --name storageos \

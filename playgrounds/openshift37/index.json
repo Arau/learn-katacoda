@@ -29,7 +29,7 @@
             },
             {
                 "title": "Use StorageOS volumes",
-                "text": "030-use-volume.md"
+                "text": "020-use-volumes.md"
             }
         ],
         "intro": {

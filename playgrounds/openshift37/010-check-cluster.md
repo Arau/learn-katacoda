@@ -9,12 +9,4 @@ It is possible to check the health rest api endpoint by: ``curl 127.0.0.1:5706/h
 StorageOS container might take a few seconds to start. If the container is not ready, you will not see a healthy output. You can check StorageOS container status
 by running: `docker logs storageos`{{execute}}
 
-## Web UI
-
-Access to StorageOS UI by clicking on the **Dashboard** tab in the console frame of this browser window. This will open the web console link in another tab or window of your browser.
-
-You should see an **StorageOS login** window with **Username** and **Password** forms.
-
-**Username:** ``storageos``{{copy}}
-**Password:** ``storageos``{{copy}}
 
