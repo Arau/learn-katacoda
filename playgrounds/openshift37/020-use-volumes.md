@@ -24,7 +24,7 @@ Create a pod that writes to the pvc.
 
 The pod finishes as soon as the file has been written. Lets check the data in the volume by attaching it to a new pod that will print written data to STDOUT.
 
-Wait until the write pod finishes and delete afterwards.
+Wait until the `write` pod finishes and delete afterwards.
 
 `until [ "$(oc get pods | grep write | grep  -c Completed)" -gt 0  ]; do sleep 1; done `{{execute}})
 
