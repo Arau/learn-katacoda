@@ -26,13 +26,11 @@ The pod finishes as soon as the file has been written. Lets check the data in th
 
 Wait until the write pod finishes and delete afterwards.
 
-`
-until [ "$(oc get pods | grep write | grep  -c Completed)" -gt 0  ]; do 
-    sleep 1; 
-done
+`until [ "$(oc get pods | grep write | grep  -c Completed)" -gt 0  ]; do sleep 1; done `{{execute}})
 
-oc delete po write
-`{{execute}})
+`oc delete po write`{{execute}}
+
+Create the `read` pod. 
 
 `oc create -f pod-read.yaml`{{execute}}
 
