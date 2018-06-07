@@ -7,7 +7,7 @@
     "time": "5-15 minutes",
     "backend": {
         "trainingid": "openshift-3.7-storageos",
-        "imageid": "openshift-3-7"
+        "imageid": "openshift-3-7-storageos"
     },
     "environment": {
         "showdashboard": true,
